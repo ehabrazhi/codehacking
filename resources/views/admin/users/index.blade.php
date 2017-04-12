@@ -8,29 +8,47 @@
 
     <h1>Users</h1>
 
-   @if($users)
 
 
-    @foreach($users as $user)
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Namw</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Created_At</th>
+            <th>Updated_At</th>
+            <th>Photo_id</th>
+        </tr>
+        </thead>
+        <tbody>
 
-        <li>{{$user->id}}</li>
-        <li>{{$user->name}}</li>
-        <li>{{$user->email}}</li>
-        <li>{{$user->role->name}}</li>
-        <li>{{$user->is_active ==1 ? 'Active' :'Not Active'}}</li>
-        <li>{{$user->created_at->diffForHumans()}}</li>
-        <li>{{$user->updated_at->diffForHumans()}}</li>
+        @if($users)
 
-
-
-
-     @endforeach
-
-
-
-
-
-    @endif
+            @foreach($users as $user)
 
 
-@stop
+                <tr>
+                    <td>{{$user->id}}</td>
+                    <td>{{$user->name}}</td>
+                    <td>{{$user->email}}</td>
+                    <td>{{$user->role->name}}</td>
+                    <td>{{$user->is_active == 1 ? 'Active' : 'Not Active'}}</td>
+                    <td>{{$user->created_at->diffForHumans()}}</td>
+                    <td>{{$user->updated_at->diffForHumans()}}</td>
+                    <td>{{$user->photo_id}}</td>
+                </tr>
+
+            @endforeach
+
+        @endif
+        </tbody>
+    </table>
+
+
+
+@endsection
+
+
