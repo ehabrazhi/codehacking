@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.scss"],"names":[],"mappings":"AAAyE;EAAkB,iBAAiB,EAAK","file":"app.css","sourcesContent":["// @import \"node_modules/bootstrap-sass/assets/stylesheets/bootstrap\";\r\r\r#admin-page  {\r\r  padding-top: 0px;\r\r}"]}
