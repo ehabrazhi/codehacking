@@ -6,11 +6,19 @@
 @section('content')
 
 
+    @if(Session::has('deleted_user'))
+
+       <p class="bg-danger">{{session('deleted_user')}}</p>
+
+    @endif
+
+
     <h1>Users</h1>
 
 
+<div class="table-responsive">
 
-    <table class="table">
+    <table class="table table-hover">
         <thead>
         <tr>
             <th>Id</th>
@@ -22,6 +30,7 @@
             <th>Created_At</th>
             <th>Updated_At</th>
             <th>Photo_id</th>
+
         </tr>
         </thead>
         <tbody>
@@ -49,7 +58,7 @@
         </tbody>
     </table>
 
-
+</div>
 
 @endsection
 

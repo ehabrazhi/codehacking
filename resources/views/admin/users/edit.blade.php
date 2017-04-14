@@ -7,12 +7,21 @@
 
 
     <h1>Edit Users</h1>
+  <div class="row">
+
+      @include('includes.form_error')
+
+  </div>
+
+ <div class="row">
 
 
   <div class="col-sm-3">
 
-      <img src="{{$user->photo->file}}" alt="" class="img-responsive img-rounded">
+      <img src="{{$user->photo ? $user->photo->file : "http://placehold.it/400x400"}}" alt="" class="img-responsive img-rounded">
   </div>
+
+
 
   <div class="col-sm-9">
 
@@ -50,15 +59,27 @@
         {!! Form::password("password" ,['class'=>'form-control'])  !!}
     </div>
 
-    <div class="form-group">
-        {!! Form::submit('Create',['class'=>'btn btn-info']) !!}
+    <div class="form-group ">
+        {!! Form::submit('Update',['class'=>'btn btn-info col-sm-6']) !!}
     </div>
+
+   {!! Form::close() !!}
+
+
+    {!! Form::model($user,['method'=>'DELETE', 'action'=>['AdminUsersController@destroy',$user->id]]) !!}
+
+      <div class="form-group">
+          {!! Form::submit('Delete',['class'=>'btn btn-danger col-sm-6']) !!}
+      </div>
+
+
 
     {!! Form::close() !!}
 
   </div>
-    @include('includes.form_error')
 
+ </div>
 
 
 @stop
+
